@@ -1,15 +1,32 @@
-/* eslint-disable react/self-closing-comp */
 import React from 'react';
+import './Form.css';
 
 class Form extends React.Component {
   render() {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      hasTrunfo,
+      isSaveButtonDisabled,
+      onInputChange,
+      onSaveButtonClick,
+    } = this.props;
     return (
-      <form action="">
+      <form onSubmit={ this.handleSubmit }>
+        <h1>Adicionar nova carta</h1>
         <label htmlFor="nameInput">
           Nome
           <input
             type="text"
             data-testid="name-input"
+            value={ cardName }
+            onChange={ onInputChange }
             id="nameInput"
           />
         </label>
@@ -20,33 +37,41 @@ class Form extends React.Component {
             type="textarea"
             data-testid="description-input"
             id="textAreaInput"
+            value={ cardDescription }
+            onChange={ onInputChange }
           />
         </label>
 
-        <label htmlFor="numberInput">
+        <label className="attr" htmlFor="numberInput">
           Attr1
           <input
             type="number"
             data-testid="attr1-input"
             id="numberInput"
+            value={ cardAttr1 }
+            onChange={ onInputChange }
           />
         </label>
 
-        <label htmlFor="number2Input">
+        <label className="attr" htmlFor="number2Input">
           Attr2
           <input
             type="number"
             data-testid="attr2-input"
             id="number2Input"
+            value={ cardAttr2 }
+            onChange={ onInputChange }
           />
         </label>
 
-        <label htmlFor="number3Input">
+        <label className="attr" htmlFor="number3Input">
           Attr3
           <input
             type="number"
             data-testid="attr3-input"
             id="number3Input"
+            value={ cardAttr3 }
+            onChange={ onInputChange }
           />
         </label>
 
@@ -55,6 +80,8 @@ class Form extends React.Component {
             type="text"
             data-testid="image-input"
             id="imageWay"
+            value={ cardImage }
+            onChange={ onInputChange }
           />
         </label>
 
@@ -64,6 +91,8 @@ class Form extends React.Component {
             name="rarity"
             data-testid="rare-input"
             id="rarity"
+            value={ cardRare }
+            onChange={ onInputChange }
           >
             <option value="normal">Normal</option>
             <option value="raro">Raro</option>
@@ -71,18 +100,22 @@ class Form extends React.Component {
           </select>
         </label>
 
-        <label htmlFor="isSuperTrunfo">
+        <label className="checkboxArea" htmlFor="isSuperTrunfo">
           <input
             type="checkbox"
             data-testid="trunfo-input"
             id="isSuperTrunfo"
+            checked={ cardTrunfo }
+            onChange={ onInputChange }
           />
+          Super Trube Trunfo
         </label>
 
         <button
           data-testid="save-button"
-          type="button"
-          id="isSuperTrunfo"
+          type="submit"
+          disabled={ isSaveButtonDisabled }
+          onClick={ onSaveButtonClick }
         >
           Salvar
         </button>
@@ -91,5 +124,20 @@ class Form extends React.Component {
     );
   }
 }
+
+// Resferência: https://stackoverflow.com/questions/38684925/react-eslint-error-missing-in-props-validation
+Form.propTypes = {
+  cardName: PropTypes.string,
+  cardDescription: PropTypes.string,
+  cardAttr1: PropTypes.string,
+  cardAttr2: PropTypes.string,
+  cardAttr3: PropTypes.string,
+  cardImage: PropTypes.string,
+  cardRare: PropTypes.string,
+  hasTrunfo: PropTypes.bool,
+  isSaveButtonDisabled: PropTypes.bool,
+  onInputChange: PropTypes.func,
+  onSaveButtonClick: PropTypes.func,
+}.isRequired;
 
 export default Form;
