@@ -1,0 +1,22 @@
+*{
+  background-color: #083132;
+  color: #fafafa;
+}
+
+main{
+  display: flex;
+}
+
+.formArea{
+  width: 50%;
+}
+
+form{
+  background-color: #fafafa;
+  width: 80%;
+}
+
+.previewArea{
+  background-color: #083132;
+  width: 50%;
+}

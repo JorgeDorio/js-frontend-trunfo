@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './components/Card';
 import Form from './components/Form';
+import './App.css';
 
 // O requisito 4 foi realizado com o auxílio dos alunos Tiago Lourinho e Abner Sousa através de chamadas no slack e no zoom, respectivamente.
 class App extends React.Component {
@@ -8,12 +9,12 @@ class App extends React.Component {
     super();
 
     this.state = {
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
-      cardImage: '',
+      cardName: 'Nome',
+      cardDescription: 'Escreva uma descrição para a carta',
+      cardAttr1: 99,
+      cardAttr2: 99,
+      cardAttr3: 99,
+      cardImage: 'https://www.cursoemvideo.com/wp-content/uploads/bb-plugin/cache/javascript-circle.jpg',
       cardRare: 'normal',
       cardTrunfo: true,
     };
@@ -42,7 +43,7 @@ class App extends React.Component {
       onSaveButtonClick,
     } = this.state;
     return (
-      <section>
+      <main>
         <Form
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -66,7 +67,7 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
-      </section>
+      </main>
     );
   }
 }
