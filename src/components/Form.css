@@ -44,6 +44,14 @@ h1 {
   margin-left: 10px;
 }
 
+.imageWay {
+  display: flex;
+}
+
+.imageWay input {
+  margin-left: 10px;
+}
+
 select {
   border-color: #444955;
   border-style: solid;
