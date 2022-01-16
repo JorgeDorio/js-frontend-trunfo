@@ -9,12 +9,12 @@ class App extends React.Component {
     super();
 
     this.state = {
-      cardName: 'Nome',
+      cardName: '',
       cardDescription: '',
-      cardAttr1: 99,
-      cardAttr2: 99,
-      cardAttr3: 99,
-      cardImage: 'https://www.cursoemvideo.com/wp-content/uploads/bb-plugin/cache/javascript-circle.jpg',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
       cardRare: 'normal',
       cardTrunfo: true,
     };

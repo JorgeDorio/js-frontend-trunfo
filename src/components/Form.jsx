@@ -38,7 +38,8 @@ class Form extends React.Component {
             Descrição
             <input
               type="textarea"
-              data-testid="description-input"              id="textAreaInput"
+              data-testid="description-input"
+              id="textAreaInput"
               value={ cardDescription }
               name="cardDescription"
               onChange={ onInputChange }
