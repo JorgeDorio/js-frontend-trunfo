@@ -17,6 +17,7 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardRare: 'normal',
+      hasTrunfo: false,
       cardTrunfo: false,
       isSaveButtonDisabled: true,
       cards: [],
@@ -78,6 +79,7 @@ class App extends React.Component {
       cardAttr2: 0,
       cardAttr3: 0,
       cardRare: 'normal',
+      hasTrunfo: cardTrunfo || hasTrunfo,
       cardTrunfo: true,
       isSaveButtonDisabled: true,
       cards: [

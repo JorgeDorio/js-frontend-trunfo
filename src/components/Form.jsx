@@ -13,11 +13,21 @@ class Form extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
     } = this.props;
+
+    // const checkbox = (<input
+    //   type="checkbox"
+    //   data-testid={ hasTrunfo ? '' : 'trunfo-input' }
+    //   className="isSuperTrunfo"
+    //   id="isSuperTrunfo"
+    //   name="cardTrunfo"
+    //   checked={ cardTrunfo }
+    //   onChange={ onInputChange }
+    // />);
 
     return (
       <div className="formArea">
@@ -110,16 +120,18 @@ class Form extends React.Component {
             </select>
           </label>
 
-          <label className="checkboxArea" htmlFor="isSuperTrunfo">
-            <input
-              type="checkbox"
-              data-testid="trunfo-input"
-              className="isSuperTrunfo"
-              id="isSuperTrunfo"
-              name="cardTrunfo"
-              checked={ cardTrunfo }
-              onChange={ onInputChange }
-            />
+          <label className="checkboxArea" htmlFor="cardTrunfo">
+            {hasTrunfo ? (<span>Você já tem um Super Trunfo em seu baralho. </span>)
+              : (
+                <input
+                  type="checkbox"
+                  data-testid={ hasTrunfo ? '' : 'trunfo-input' }
+                  id="cardTrunfo"
+                  className="isSuperTrunfo"
+                  name="cardTrunfo"
+                  checked={ cardTrunfo }
+                  onChange={ onInputChange }
+                />)}
             Super Trube Trunfo
           </label>
 
