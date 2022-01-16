@@ -12,15 +12,15 @@ class App extends React.Component {
     this.state = {
       cardName: '',
       cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       cardImage: '',
       cardRare: 'normal',
       hasTrunfo: false,
       cardTrunfo: false,
       isSaveButtonDisabled: true,
-      cards: [],
+      arrayCards: [],
     };
   }
 
@@ -69,27 +69,31 @@ class App extends React.Component {
   onSaveButtonClick = (event) => {
     event.preventDefault();
 
-    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3 } = this.state;
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
+      cardRare, cardTrunfo, hasTrunfo } = this.state;
 
     this.setState((prevState) => ({
       cardName: '',
       cardDescription: '',
       cardImage: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       cardRare: 'normal',
       hasTrunfo: cardTrunfo || hasTrunfo,
       cardTrunfo: true,
       isSaveButtonDisabled: true,
-      cards: [
-        ...prevState.cards,
+      arrayCards: [
+        ...prevState.arrayCards,
         {
           cardName,
           cardDescription,
           cardAttr1,
           cardAttr2,
+          cardImage,
           cardAttr3,
+          cardRare,
+          cardTrunfo,
         }],
     }));
   }
@@ -106,6 +110,7 @@ class App extends React.Component {
       cardTrunfo,
       hasTrunfo,
       isSaveButtonDisabled,
+      arrayCards,
     } = this.state;
     return (
       <main>
@@ -133,6 +138,19 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        {arrayCards.map((card) => (
+          <Card
+            key={ card.cardName }
+            cardName={ card.cardName }
+            cardDescription={ card.cardDescription }
+            cardImage={ card.cardImage }
+            cardAttr1={ card.cardAttr1 }
+            cardAttr2={ card.cardAttr2 }
+            cardAttr3={ card.cardAttr3 }
+            cardRare={ card.cardRare }
+            cardTrunfo={ card.cardTrunfo }
+          />
+        ))}
       </main>
     );
   }
