@@ -35,7 +35,7 @@ class Card extends React.Component {
                 Attr03:
                 {cardAttr3}
               </h3>
-              <h3 data-testid="rare-card" hidden="true">
+              <h3 data-testid="rare-card">
                 Tipo:
                 {` ${cardRare}`}
               </h3>

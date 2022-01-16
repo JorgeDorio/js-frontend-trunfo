@@ -21,7 +21,7 @@ class Form extends React.Component {
 
     return (
       <div className="formArea">
-        <form onSubmit={ this.handleSubmit }>
+        <form onSubmit={ onSaveButtonClick }>
           <h1>Adicionar nova carta</h1>
           <label htmlFor="nameInput">
             Nome
