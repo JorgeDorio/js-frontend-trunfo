@@ -10,7 +10,7 @@ class App extends React.Component {
 
     this.state = {
       cardName: 'Nome',
-      cardDescription: 'Escreva uma descrição para a carta',
+      cardDescription: '',
       cardAttr1: 99,
       cardAttr2: 99,
       cardAttr3: 99,

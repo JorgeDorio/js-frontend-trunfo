@@ -22,7 +22,7 @@ class Card extends React.Component {
             <div className="preview3">
               <h2 data-testid="name-card">{cardName}</h2>
               <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-              <p data-testid="description-cardp">{cardDescription}</p>
+              <p data-testid="description-card">{cardDescription}</p>
               <h3 className="attrp" data-testid="attr1-card">
                 Attr01:
                 {cardAttr1}
