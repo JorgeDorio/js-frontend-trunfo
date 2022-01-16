@@ -22,6 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-App.css
-Card.css
-Form.css
+/src/App.css
+/src/components/Card.css
+/src/components/Form.css
