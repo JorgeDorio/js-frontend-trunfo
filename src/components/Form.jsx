@@ -18,6 +18,7 @@ class Form extends React.Component {
       onInputChange,
       onSaveButtonClick,
     } = this.props;
+
     return (
       <div className="formArea">
         <form onSubmit={ this.handleSubmit }>

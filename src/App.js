@@ -16,8 +16,42 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardRare: 'normal',
-      cardTrunfo: true,
+      cardTrunfo: false,
+      isSaveButtonDisabled: true,
     };
+  }
+
+  validationButton = () => {
+    const {
+      cardName,
+      cardDescription,
+      cardImage,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+    } = this.state;
+
+    const maxAttr = 90;
+    const attr1Validation = cardAttr1 >= 0 && cardAttr1 <= maxAttr;
+    const attr2Validation = cardAttr2 >= 0 && cardAttr2 <= maxAttr;
+    const attr3Validation = cardAttr3 >= 0 && cardAttr3 <= maxAttr;
+
+    const allAttr = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
+    const attrsLimit = 210;
+    const validationAttr = allAttr <= attrsLimit;
+
+    const testValidation = [
+      !cardName.length,
+      !cardDescription.length,
+      !attr1Validation,
+      !attr2Validation,
+      !attr3Validation,
+      !validationAttr,
+      !cardImage.length,
+    ];
+
+    const filledForm = testValidation.every((error) => error !== true);
+    this.setState({ isSaveButtonDisabled: !filledForm });
   }
 
   onInputChange = ({ target }) => {
@@ -26,7 +60,7 @@ class App extends React.Component {
 
     this.setState({
       [name]: value,
-    });
+    }, this.validationButton);
   }
 
   render() {
@@ -41,6 +75,7 @@ class App extends React.Component {
       cardTrunfo,
       hasTrunfo,
       onSaveButtonClick,
+      isSaveButtonDisabled,
     } = this.state;
     return (
       <main>
@@ -56,6 +91,7 @@ class App extends React.Component {
           hasTrunfo={ hasTrunfo }
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ onSaveButtonClick }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
         />
         <Card
           cardName={ cardName }
