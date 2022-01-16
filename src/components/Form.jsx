@@ -116,7 +116,7 @@ class Form extends React.Component {
               data-testid="trunfo-input"
               className="isSuperTrunfo"
               id="isSuperTrunfo"
-              name="isSuperTrunfo"
+              name="cardTrunfo"
               checked={ cardTrunfo }
               onChange={ onInputChange }
             />
